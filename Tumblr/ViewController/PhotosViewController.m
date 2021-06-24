@@ -48,7 +48,7 @@
                 NSDictionary *responseDictionary = dataDictionary[@"response"];
                 // Store the returned array of dictionaries in our posts property
                 self.posts = responseDictionary[@"posts"];
-                
+                NSLog(@"%d", _posts.count);
                 [self.PhotoTableView reloadData];
 
                 // TODO: Get the posts and store in posts property
@@ -72,6 +72,7 @@
     NSDictionary *post = self.posts[indexPath.row];
     
     NSArray *photos = post[@"photos"];
+   
     
     if (photos) {
         // 1. Get the first photo in the photos array
@@ -82,10 +83,11 @@
         
         
         
-//        NSDictionary *width = [photos[0].orginial ]
-//        NSDictionary *height = originalSize[@"height"];
+        NSString *width = originalSize[@"width"];
+        NSString *height = originalSize[@"height"];
+        
+        if([width isEqual:height]){
             
-        int count = 0;
             // 3. Get the url string from the original size dictionary
         NSString *urlString = originalSize[@"url"];
 
@@ -94,12 +96,22 @@
             
         cell.photosImageView.image = nil;
         [cell.photosImageView setImageWithURL:url];
+        }
+        
+    
 
       
     }
     
     return cell;
 }
+
+//-(void)sortImage {
+//    for(NSDictionary *post in self.posts){
+//        for(NSDictionary *post2 in self.posts){
+//        }
+//    }
+//}
 
 /*
 #pragma mark - Navigation

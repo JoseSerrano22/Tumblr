@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PhotosCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *photosImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *photosSecondImageView;
 
 
 @end
